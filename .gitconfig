@@ -1,0 +1,30 @@
+[alias]
+	b = branch
+	bc = checkout -b
+	bd = branch -d
+	bl = branch -av
+	c = commit
+	d = diff
+	dc = diff --cached
+	ff = merge --ff-only
+	g = !git log --graph --decorate --oneline --all --color | less +/[^/]HEAD
+	l = fetch --all --prune
+	lu = pull --ff-only --all --prune
+	merge-true = merge --no-ff
+	p = push
+	s = status
+	rollback = reset --soft HEAD^
+	sw = checkout
+	switch = checkout
+	unstage = reset HEAD
+	up = checkout
+[gui]
+	pruneduringfetch = true
+[merge]
+	defaultToUpstream = true
+[push]
+	default = current
+[color]
+	ui = auto
+[status]
+	showUntrackedFiles = normal
