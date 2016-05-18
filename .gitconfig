@@ -4,27 +4,31 @@
 	bd = branch -d
 	bl = branch -av
 	c = commit
+	cf = commit --fixup=HEAD
 	d = diff
 	dc = diff --cached
+	f = fetch --all --prune
 	ff = merge --ff-only
-	g = !git log --graph --decorate --oneline --all --color | less +/[^/]HEAD
-	l = fetch --all --prune
-	lu = pull --ff-only --all --prune
+	fu = pull --ff-only --all --prune
+	g = !git log --graph --decorate --oneline --all --color | less --pattern="\\([^/]\\)HEAD"
 	merge-true = merge --no-ff
 	p = push
 	s = status
+	rv = review
+	ri = rebase --interactive
 	rollback = reset --soft HEAD^
-	sw = checkout
 	switch = checkout
 	unstage = reset HEAD
 	up = checkout
+[color]
+	ui = auto
 [gui]
 	pruneduringfetch = true
 [merge]
 	defaultToUpstream = true
 [push]
 	default = current
-[color]
-	ui = auto
+[rebase]
+	autoSquash = true
 [status]
 	showUntrackedFiles = normal
