@@ -7,18 +7,19 @@
 	cf = commit --fixup=HEAD
 	d = diff
 	dc = diff --cached
-	f = fetch --all --prune
+	f = fetch --all --prune --tags
 	ff = merge --ff-only
-	fu = pull --ff-only --all --prune
-	g = !git log --graph --decorate --oneline --all --color | less --pattern="\\([^/]\\)HEAD"
+	fu = pull --ff-only --all --prune --tags
+	g = !git log --all --color --decorate --graph --oneline | less --pattern="\\([^/]\\)HEAD"
 	merge-true = merge --no-ff
 	p = push
 	s = status
-	rv = review
+	rd = review --draft
 	ri = rebase --interactive
 	rollback = reset --soft HEAD^
 	switch = checkout
 	unstage = reset HEAD
+		# TODO(2016-05-18) `rm --cached` in case of the init revision
 	up = checkout
 [color]
 	ui = auto
@@ -30,5 +31,15 @@
 	default = current
 [rebase]
 	autoSquash = true
+#[remote "origin"]
+#	fetch = +refs/pull/*/head:refs/remotes/origin/pull/*
 [status]
 	showUntrackedFiles = normal
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = nano
